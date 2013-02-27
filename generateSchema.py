@@ -26,7 +26,7 @@ class Schemar(object):
 		name=[]
 		firstname=""
 		lastname=""
-		w = open("data.txt","wb")
+		w = open("MegachurchesTriples","wb")
 		w.write("@prefix megachurches: <http://vocab.inf.ed.ac.uk/megachurches#> .\n")
 		w.write ("@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .\n")
 		w.write ("@prefix foaf: <http://xmlns.com/foaf/0.1/> .\n")
@@ -55,8 +55,8 @@ class Schemar(object):
 			"\t"+"megachurches:senior_minister \""+triple[2]+"\" ; \n"+\
 			"\t"+"megachurches:identifier" +" \""+triple[0]+"\""+" ; \n"+\
 			"\t"+"megachurches:weeklyAttendance " + "\""+num +"\""+" ; \n"+\
-			"\t"+"places:city "+ "\""+str(triple[3])+"\""+" ; \n"+"\t"+\
-			 "places:state "+ "\""+str(triple[4])+"\""+" ; \n"+\
+			"\t"+"places:City "+ "\""+str(triple[3])+"\""+" ; \n"+"\t"+\
+			 "places:State "+ "\""+str(triple[4])+"\""+" ; \n"+\
 			"\t"+"db:religion " + "\""+denom+"\""+" . \n"
 		
 			#"\t"+"megachurches:senior_minister "+\
