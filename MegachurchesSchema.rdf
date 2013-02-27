@@ -6,11 +6,11 @@
 @prefix url: <http://purl.org/dc/dcmitype/> .
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix places: <http://purl.org/ontology/places#> .
 @prefix db: <http://live.dbpedia.org/ontology/> .
 @prefix w3org: <http://www.w3.org/ns/org#> .
 @prefix religion: <http://dbpedia.org/ontology/religion> .
-
+@prefix places: <http://purl.org/ontology/places#> .
+@prefix usgov: <http://www.rdfabout.com/rdf/usgov/geo/us/>.
 megachurches: a owl:Ontology;
 	rdfs:label "USA Megachurches Vocabulary";
 	rdfs:comment """A Vocabulary about the large USA churches.""";

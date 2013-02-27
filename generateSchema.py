@@ -1,9 +1,11 @@
+# Python script converting tabular data into RDF form
+# Data specific
+# MASWS CW1P2
+
 import csv, os, re, string, sys
 import xml.dom.minidom
 class Schemar(object):
 	def __init__(self):
-		self.data=[]
-		self.text=''
 		self.denominations=dict()
 	# open a text file
 	# return a string 
@@ -14,18 +16,14 @@ class Schemar(object):
 		finally:
 			f.close()
 			return text
-		
+	# associate the denomination acronyms with the denominations themselves
 	def feedDenominations(self,text):
 		for line in text:
 			l=line[:-2].split(" - ")
 			self.denominations[l[0]]=l[2]
-		#print self.denominations
 	
 	def process(self, text):
 		id=0
-		name=[]
-		firstname=""
-		lastname=""
 		w = open("MegachurchesTriples.rdf","wb")
 		w.write("@prefix megachurches: <http://vocab.inf.ed.ac.uk/megachurches#> .\n")
 		w.write ("@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .\n")
@@ -38,19 +36,11 @@ class Schemar(object):
 		w.write ("@prefix url: <http://purl.org/dc/dcmitype/> .\n")
 		w.write ("@prefix dc: <http://purl.org/dc/elements/1.1/> .\n")
 		w.write ("@prefix owl: <http://www.w3.org/2002/07/owl#> .\n")
-		
 		for line in text:
-			
 			id=id+1
 			triple=line[:-2].split("\t")
-			self.data.append(triple)
 			num=str(triple[5])
 			denom=self.denominations[triple[len(triple)-1]]
-			#name=triple[2].split(' ')
-			#firstname=' '.join(name[:-1]) # fix the russel J Levenson Jr. problem
-			#lastname=str(name[len(name)-1])
-			#someline="megachurches:"+str(id)+" foaf:name "+"\""+ triple[1]+"\""+";"+"\n"+\
-			
 			someline="megachurches:"+str(id)+" a megachurches:Megachurch ; \n" +\
 			"\t"+"megachurches:name \"" + triple[1]+"\" ; \n "+ \
 			"\t"+"megachurches:senior_minister \""+triple[2]+"\" ; \n"+\
@@ -59,10 +49,6 @@ class Schemar(object):
 			"\t"+"places:City "+ "\""+str(triple[3])+"\""+" ; \n"+"\t"+\
 			 "places:State "+ "usgov:"+ str(triple[4])+" ; \n"+\
 			"\t"+"db:religion " + "\""+denom+"\""+" . \n"
-		
-			#"\t"+"megachurches:senior_minister "+\
-			#"[ foaf:givenName " +"\""+firstname +"\""+" ;"+\
-			#" foaf:familyName "+"\""+ lastname+"\""+".] ; \n"+\
 			w.write(someline)
 def main():
 	s=Schemar()
