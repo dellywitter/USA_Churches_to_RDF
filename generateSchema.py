@@ -19,20 +19,20 @@ class Schemar(object):
 		for line in text:
 			l=line[:-2].split(" - ")
 			self.denominations[l[0]]=l[2]
-		print self.denominations
+		#print self.denominations
 	
 	def process(self, text):
 		id=0
 		name=[]
 		firstname=""
 		lastname=""
-		w = open("MegachurchesTriples","wb")
+		w = open("MegachurchesTriples.rdf","wb")
 		w.write("@prefix megachurches: <http://vocab.inf.ed.ac.uk/megachurches#> .\n")
 		w.write ("@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .\n")
 		w.write ("@prefix foaf: <http://xmlns.com/foaf/0.1/> .\n")
 		w.write ("@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .\n")
 		w.write ("@prefix places: <http://purl.org/ontology/places#> .\n")
-		w.write ("@prefix usgov: <http://www.rdfabout.com/rdf/usgov/geo/>.\n")
+		w.write ("@prefix usgov: <http://www.rdfabout.com/rdf/usgov/geo/us/>.\n")
 		w.write ("@prefix db: <http://dbpedia.org/ontology/> .\n")
 		w.write ("@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n")
 		w.write ("@prefix url: <http://purl.org/dc/dcmitype/> .\n")
@@ -50,13 +50,14 @@ class Schemar(object):
 			#firstname=' '.join(name[:-1]) # fix the russel J Levenson Jr. problem
 			#lastname=str(name[len(name)-1])
 			#someline="megachurches:"+str(id)+" foaf:name "+"\""+ triple[1]+"\""+";"+"\n"+\
+			
 			someline="megachurches:"+str(id)+" a megachurches:Megachurch ; \n" +\
 			"\t"+"megachurches:name \"" + triple[1]+"\" ; \n "+ \
 			"\t"+"megachurches:senior_minister \""+triple[2]+"\" ; \n"+\
 			"\t"+"megachurches:identifier" +" \""+triple[0]+"\""+" ; \n"+\
 			"\t"+"megachurches:weeklyAttendance " + "\""+num +"\""+" ; \n"+\
 			"\t"+"places:City "+ "\""+str(triple[3])+"\""+" ; \n"+"\t"+\
-			 "places:State "+ "\""+str(triple[4])+"\""+" ; \n"+\
+			 "places:State "+ "usgov:"+ str(triple[4])+" ; \n"+\
 			"\t"+"db:religion " + "\""+denom+"\""+" . \n"
 		
 			#"\t"+"megachurches:senior_minister "+\
