@@ -37,8 +37,8 @@ class Schemar(object):
 		w.write ("@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n")
 		w.write ("@prefix url: <http://purl.org/dc/dcmitype/> .\n")
 		w.write ("@prefix dc: <http://purl.org/dc/elements/1.1/> .\n")
-		w.write("@prefix owl: <http://www.w3.org/2002/07/owl#> .\n")
-
+		w.write ("@prefix owl: <http://www.w3.org/2002/07/owl#> .\n")
+		
 		for line in text:
 			
 			id=id+1
@@ -54,10 +54,10 @@ class Schemar(object):
 			"\t"+"megachurches:name \"" + triple[1]+"\" ; \n "+ \
 			"\t"+"megachurches:senior_minister \""+triple[2]+"\" ; \n"+\
 			"\t"+"megachurches:identifier" +" \""+triple[0]+"\""+" ; \n"+\
-			"\t"+"megachurches:city "+ "\""+str(triple[3])+"\""+" ; \n"+"\t"+\
-			 "megachurches:state "+ "\""+str(triple[4])+"\""+" ; \n"+\
 			"\t"+"megachurches:weeklyAttendance " + "\""+num +"\""+" ; \n"+\
-			"\t"+"megachurches:denomination " + "\""+denom+"\""+" . \n"
+			"\t"+"places:city "+ "\""+str(triple[3])+"\""+" ; \n"+"\t"+\
+			 "places:state "+ "\""+str(triple[4])+"\""+" ; \n"+\
+			"\t"+"db:religion " + "\""+denom+"\""+" . \n"
 		
 			#"\t"+"megachurches:senior_minister "+\
 			#"[ foaf:givenName " +"\""+firstname +"\""+" ;"+\
