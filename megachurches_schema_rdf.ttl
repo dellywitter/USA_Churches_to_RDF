@@ -2,7 +2,7 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix megachurches: <http://vocab.inf.ed.ac.uk/megachurches#> .
+@prefix megachurches: <http://homepages.inf.ed.ac.uk/s0946868/megachurches_triples_rdf.ttl> .
 @prefix url: <http://purl.org/dc/dcmitype/> .
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
@@ -21,7 +21,7 @@ megachurches: a owl:Ontology;
 	], [ a foaf:Person;
 		foaf:name "Dora Popova"
 	].
-	
+
 megachurches:Megachurch a owl:Class.
 megachurches:name a rdfs:Property;
 	rdfs:domain megachurches:Megachurch;

@@ -1,0 +1,14 @@
+The following instructions have been tried and work on DICE only.
+$ cd ..
+$ cd ..
+$ cd ..
+$ cd ..
+
+then enter the arq
+$ cd usr/share/java/arq/
+$ export ARQROOT=/usr/share/java/arq/
+
+to run q1.rq on our datasets uploaded on homepages.inf.ed.ac.uk/s0946868/megachurches_triples_rdf.ttl
+bin/sparql --data=../../../../afs/inf.ed.ac.uk./user/s09/s0946868/MASWS/megachurches_triples_rdf.ttl --query=../../../../afs/inf.ed.ac.uk./user/s09/s0946868/MASWS/q1.rq
+
+the query and triples data is stored in the home folder/MASWS (../../../../afs/inf.ed.ac.uk./user/s09/s0946868/MASWS/megachurches_triples_rdf.ttl)

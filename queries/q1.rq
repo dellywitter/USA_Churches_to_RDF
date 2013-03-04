@@ -1,0 +1,18 @@
+#outputs all church names in San Diego, California
+PREFIX megachurches: <http://homepages.inf.ed.ac.uk/s0946868/megachurches_schema_rdf.ttl>
+PREFIX db: <http://dbpedia.org/ontology/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
+PREFIX foaf: <http://xmlns.com/foaf/0.1/> 
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> 
+PREFIX places: <http://purl.org/ontology/places#> 
+PREFIX usgov: <http://www.rdfabout.com/rdf/usgov/geo/us/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> 
+PREFIX url: <http://purl.org/dc/dcmitype/> 
+PREFIX dc: <http://purl.org/dc/elements/1.1/> 
+PREFIX owl: <http://www.w3.org/2002/07/owl#> 
+
+SELECT  ?name
+WHERE {	?megachurch megachurches:name ?name .
+	?megachurch places:State usgov:CA .
+	?megachurch places:City "San Diego" . }
+

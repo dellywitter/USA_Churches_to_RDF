@@ -1,4 +1,4 @@
-@prefix megachurches: <http://vocab.inf.ed.ac.uk/megachurches#> .
+@prefix megachurches: <http://homepages.inf.ed.ac.uk/s0946868/megachurches_schema_rdf.ttl> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
