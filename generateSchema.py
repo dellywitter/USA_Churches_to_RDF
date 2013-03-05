@@ -45,7 +45,7 @@ class Schemar(object):
 			"\t"+"megachurches:name \"" + triple[1]+"\" ; \n "+ \
 			"\t"+"megachurches:senior_minister \""+triple[2]+"\" ; \n"+\
 			"\t"+"megachurches:identifier" +" \""+triple[0]+"\""+" ; \n"+\
-			"\t"+"megachurches:weeklyAttendance " + "\""+num +"\""+" ; \n"+\
+			"\t"+"megachurches:weeklyAttendance " + "\""+num +"\"^^xsd:int"+" ; \n"+\
 			"\t"+"places:City "+ "\""+str(triple[3])+"\""+" ; \n"+"\t"+\
 			 "places:State "+ "usgov:"+ str(triple[4])+" ; \n"+\
 			"\t"+"db:religion " + "\""+denom+"\""+" . \n"

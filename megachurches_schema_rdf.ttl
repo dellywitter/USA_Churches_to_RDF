@@ -29,11 +29,13 @@ megachurches:name a rdfs:Property;
 	rdfs:label "churchname" .
 megachurches:senior_minister a rdfs:Property;
 	rdfs:domain megachurches:Megachurch;
-	rdfs:label "name of senior minister" .
+	rdfs:range foaf:name;
+	rdfs:label "name_of_senior_minister" .
 megachurches:identifier a rdfs:Property;
 	rdfs:domain megachurches:Megachurch;
 	rdfs:range url:InteractiveResource;
-	rdfs:label "web page address" .
+	rdfs:label "web_address" .
 megachurches:weeklyAttendance a rdfs:Property;
 	rdfs:domain megachurches:Megachurch;
-	rdfs:label "average number of people attending the church weekly" .
+	rdfs:range xsd:integer;
+	rdfs:label "weekly_attendees" .
